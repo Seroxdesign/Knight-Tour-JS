@@ -1,0 +1,30 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+body{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    height: 100vh;
+    width: 100vw;
+}
+
+board{
+    width: 350px;
+    height: 350px;
+    border: 5px solid black;
+    grid-row: 4/7;
+    grid-column: 3/7;
+}
+
+td{
+    border: 2px solid black;
+    width: 40px;
+    height: 40px;
+}
+
+.black{
+    background-color: black;
+}
