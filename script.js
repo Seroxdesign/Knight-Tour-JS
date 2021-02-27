@@ -5,6 +5,12 @@ let y_moves = [1, 2, -1, 2, 1, -2, -1, -2]
 let move_count = 0;
 let board_solved = false
 let attempt_number = 0;
+let solved_board = [];
+let find_tour_btn = document.getElementById('find-tour');
+let row_picker = document.getElementsByClassName('row')[0];
+let col_picker = document.getElementsByClassName('col')[0];
+let row = 0;
+let col = 0;
 
 
 //checks if board is complete, returns false if board still has unoccupied cells (working)
@@ -129,6 +135,8 @@ const solve_tour = (row, col) => {
         display_board()
         console.log('solution found after ' + attempt_number + ' attempts')
         board_solved = true
+        solved_board = board;
+        console.log('this is the solved board: ', solved_board)
         reset_board()
         return
     }
@@ -144,7 +152,7 @@ const reset_board = () => {
 
 //Solves tour(working) FINALLY!!!!!
 
-const knight_tour = (row, col) => {
+const knight_tour = () => {
     
     find_cells_Warnsdorff_values()
     while(board_solved == false){
@@ -152,4 +160,16 @@ const knight_tour = (row, col) => {
     }
 }
 
-//knight_tour(0, 0)
+
+
+row_picker.addEventListener('input', (e) => {
+    row = e.target.value;
+    console.log(row)
+})
+
+col_picker.addEventListener('input', (e) => {
+    col = e.target.value;
+    console.log(col)
+})
+
+find_tour_btn.addEventListener('click', knight_tour)
